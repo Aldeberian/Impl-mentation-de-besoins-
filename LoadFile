@@ -1,14 +1,18 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int Load(int tmax,int t_ID[],t_Activate[],t_ActivePoint[],t_UsedPoint[],t_Categorie[],t_MultiplceAcess[])
+int Load(int tmax,int t_ID[],int t_Activate[],int t_ActivePoint[],int t_UsedPoint[],int t_Categorie[],int t_MultiplceAcess[])
 {
     int i;
     int ID_insert,Activate_insert,ActivePoint_Insert,UsedPoint_Insert,Categorie_Insert,MultipleAcess_Insert;
 
     i=0;
     FILE *f;
-    f=fopen("InfoSheet.txt");
+    if (f=fopen("InfoSheet.txt","r")==NULL)
+    {
+      fprintf(stderr,"Le fichier n'a pas pu être lu");
+      return -2;
+    }
 
     while (feof(f)&&i<tmax)
     {
@@ -20,15 +24,14 @@ int Load(int tmax,int t_ID[],t_Activate[],t_ActivePoint[],t_UsedPoint[],t_Catego
         t_UsedPoint[i]=UsedPoint_Insert;
         t_MultiplceAcess[i]=MultipleAcess_Insert;
         ++i;
-
     }
 
     if (i>=tmax)
     {
         fprintf(stderr,"Le tableau est trop petit");
-        exit(1);
+        return -1;
     }
 
-    fprintf(stdout,"Chargement du fichier terminé sans erreur")
+    fprintf(stdout,"Chargement du fichier terminé sans erreur");
     return i;
 }
