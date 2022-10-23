@@ -1,3 +1,5 @@
+#include <stdio.h>
+
 void Affichage(int tlogi,int t_ID[],int t_Activate[],int t_ActivePoint[],int t_Categorie[],int t_MultiplceAcess[])
 {
     int i;
