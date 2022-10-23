@@ -1,0 +1,34 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int Load(int tmax,int t_ID[],t_Activate[],t_ActivePoint[],t_UsedPoint[],t_Categorie[],t_MultiplceAcess[])
+{
+    int i;
+    int ID_insert,Activate_insert,ActivePoint_Insert,UsedPoint_Insert,Categorie_Insert,MultipleAcess_Insert;
+
+    i=0;
+    FILE *f;
+    f=fopen("InfoSheet.txt");
+
+    while (feof(f)&&i<tmax)
+    {
+        scanf("%d %d %d %d %c %d",ID_insert,Activate_insert,ActivePoint_Insert,UsedPoint_Insert,Categorie_Insert,MultipleAcess_Insert);
+        t_ID[i]=ID_insert;
+        t_Activate[i]=Activate_insert;
+        t_ActivePoint[i]=ActivePoint_Insert;
+        t_Categorie[i]=Categorie_Insert;
+        t_UsedPoint[i]=UsedPoint_Insert;
+        t_MultiplceAcess[i]=MultipleAcess_Insert;
+        ++i;
+
+    }
+
+    if (i>=tmax)
+    {
+        fprintf(stderr,"Le tableau est trop petit");
+        exit(1);
+    }
+
+    fprintf(stdout,"Chargement du fichier terminé sans erreur")
+    return i;
+}
