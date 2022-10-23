@@ -1,8 +1,14 @@
 #include <stdio.h>
 
 
-void main(void) {
-
-
-return 0;
+int main(void)
+{
+  int tmax,tlogi;
+  tmax=50;
+  int t_ID[],t_Activate[],t_ActivePoint[],t_UsedPoint[],t_Categorie[],t_MultiplceAcess[];
+  tlogi=Loadfile(tmax,t_ID[],t_Activate[],t_ActivePoint[],t_Categorie[],t_MultiplceAcess[],tlogi));
+  Affichage(tlogi,t_ID[],t_Activate[],t_ActivePoint[],t_Categorie[],t_MultiplceAcess[]);
+  
+  fprintf(stdout,"Sortie du programme sans erreur");
+  return 0;
 }
