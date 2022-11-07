@@ -1,0 +1,12 @@
+int RemovePtsAct(int Pts_remove,int ID, int t_ID[], int t_UsedPoint[], int t_ActivePoint[])
+{
+  int i;
+  for(i=0;t_ID[i]!=ID||(i+1)<=tlogi;++i);
+  if (i+1==tlogi)
+  {
+    fprintf("stderr","L'ID renseigné n'est pas renseigné dans la base de donnée.");
+    return -1;
+  }
+  t_ActivePoint[i]-=Pts_Remove;
+  t_UsedPoint[i]-=Pts_Remove;
+}
